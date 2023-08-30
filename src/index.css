@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap');
+
+:root {
+  --body-bg-color:  #d6dce3;
+  --wrapper-bg-color: #f9f9f9;
+  --input-bg-color: #ddd;
+  --shadow-color: rgba(181,181,181,1)
+  --text-color: #fff;
+  --completed-task: #cbcbcb;
+  --task-border: #ddd;
+  --placeholder-color: #000
+}
+
+[data-theme="dark"] {
+  --body-bg-color:  #131315;
+  --wrapper-bg-color: #2d3b43;
+  --input-bg-color:#131315;
+  --shadow-color: black;
+  --text-color: #e1e1e1;
+  --completed-task: #797979;
+  --task-border: #ffffff1f;
+  --placeholder-color: #8d8d8d
+}
+
+* {
+  font-family: 'Quicksand', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: var(--text-color);
+}
+body {
+  background-color: var(--body-bg-color) !important;
+}
+.todo-wrapper {
+  max-width: 600px;
+  margin: auto;
+  background-color: var(--wrapper-bg-color);
+  padding: 20px;
+  border-radius: 6px;
+  -webkit-box-shadow: 0px 0px 26px 0px var(--shadow-color);
+  -moz-box-shadow: 0px 0px 26px 0px var(--shadow-color);
+  box-shadow: 0px 0px 26px 0px var(--shadow-color);
+}
+.todo-wrapper h1 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Styling Task Input Form */
+.todo-wrapper .input-group {
+  background-color: var(--input-bg-color);
+}
+.todo-wrapper .input-group input {
+  border: none;
+  outline: none;
+  padding: 10px 0 10px 25px;
+  color: var(--input-text-color);
+}
+.todo-wrapper .input-group input:focus {
+  box-shadow: none;
+  border: none;
+  outline: none;
+}
+.todo-wrapper .input-group input::placeholder {
+  color: var(--placeholder-color);
+}
+.todo-wrapper .input-group button,
+.todo-wrapper .input-group button:active, 
+.todo-wrapper .input-group button:focus {
+  background-color: #FF643B;
+  border: none;
+  padding: 10px 35px;
+}
+.todo-wrapper .input-group button:hover {
+  background-color: #e75d37;
+}
+.todo-wrapper .task {
+  padding: 15px;
+  border-bottom: 1px solid var(--task-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.todo-wrapper .task p {
+  font-size: 22px;
+  position: relative;
+  max-width: 350px;
+}
+.todo-wrapper .task.completed p {
+  color: var(--completed-task) !important;
+}
+.todo-wrapper .task  p::before {
+  content: "";
+  width: 0;
+  height: 2px;
+  background-color: var(--completed-task);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  transition: all ease .3s;
+}
+.todo-wrapper .task.completed  p::before {
+  width: 100%;
+}
+@media (max-width: 576px) {
+  .todo-wrapper .task p {
+    max-width: 200px;
+  }
+}
+@media (max-width: 768px) {
+  .todo-wrapper .task p {
+    font-size: 18px;
+  }
+}
+.todo-wrapper .task .task-control svg {
+  cursor: pointer;
+}
+.todo-wrapper .task.completed svg.edit {
+  pointer-events: none;
+}
+
+/* Styling Edit Form */
+.todo-wrapper .edit-form button,
+.todo-wrapper .edit-form button:active,
+.todo-wrapper .edit-form button:focus {
+  background-color: grey;
+}
+.todo-wrapper .edit-form button:hover {
+  background-color: rgb(118, 118, 118);
+}
+
+/* UIverse Check Box */
+.checkbox-wrapper:hover .check {
+  stroke-dashoffset: 0;
+}
+
+.checkbox-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}
+
+.checkbox-wrapper .background {
+  fill: grey;
+  transition: ease all 0.6s;
+  -webkit-transition: ease all 0.6s;
+}
+
+.checkbox-wrapper .stroke {
+  fill: none;
+  stroke: #fff;
+  stroke-miterlimit: 10;
+  stroke-width: 2px;
+  stroke-dashoffset: 100;
+  stroke-dasharray: 100;
+  transition: ease all 0.6s;
+  -webkit-transition: ease all 0.6s;
+}
+
+.checkbox-wrapper .check {
+  fill: none;
+  stroke: #fff;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2px;
+  stroke-dashoffset: 22;
+  stroke-dasharray: 22;
+  transition: ease all 0.6s;
+  -webkit-transition: ease all 0.6s;
+}
+
+.checkbox-wrapper input[type=checkbox] {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  margin: 0;
+  opacity: 0;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.checkbox-wrapper input[type=checkbox]:hover {
+  cursor: pointer;
+}
+
+.checkbox-wrapper input[type=checkbox]:checked + svg .background {
+  fill: #FF643B;
+}
+
+.checkbox-wrapper input[type=checkbox]:checked + svg .stroke {
+  stroke-dashoffset: 0;
+}
+
+.checkbox-wrapper input[type=checkbox]:checked + svg .check {
+  stroke-dashoffset: 0;
+}
+
+svg {
+  vertical-align: top !important;
+}
+
+/* UIverse Toggle Button */
+.toggle-switch {
+  position: relative;
+  width: 65px;
+  height: 50px;
+  --light: #d8dbe0;
+  --dark: #28292c;
+  --link: rgb(27, 129, 112);
+  --link-hover: rgb(24, 94, 82);
+}
+
+.switch-label {
+  position: absolute;
+  width: 100%;
+  height: 30px;
+  background-color: var(--dark);
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.checkbox {
+  position: absolute;
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 25px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.checkbox:checked ~ .slider {
+  background-color: var(--light);
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  box-shadow: inset 8px -4px 0px 0px var(--light);
+  background-color: var(--dark);
+  transition: 0.3s;
+}
+
+.checkbox:checked ~ .slider::before {
+  -webkit-transform: translateX(36px);
+  -ms-transform: translateX(36px);
+  transform: translateX(36px);
+  background-color: var(--dark);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
