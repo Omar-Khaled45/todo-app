@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap');
-
 :root {
   --body-bg-color:  #d6dce3;
   --wrapper-bg-color: #f9f9f9;
@@ -10,7 +9,6 @@
   --task-border: #ddd;
   --placeholder-color: #000
 }
-
 [data-theme="dark"] {
   --body-bg-color:  #131315;
   --wrapper-bg-color: #2d3b43;
@@ -21,7 +19,6 @@
   --task-border: #ffffff1f;
   --placeholder-color: #8d8d8d
 }
-
 * {
   font-family: 'Quicksand', sans-serif;
   margin: 0;
@@ -38,15 +35,12 @@ body {
   background-color: var(--wrapper-bg-color);
   padding: 20px;
   border-radius: 6px;
-  -webkit-box-shadow: 0px 0px 26px 0px var(--shadow-color);
-  -moz-box-shadow: 0px 0px 26px 0px var(--shadow-color);
   box-shadow: 0px 0px 26px 0px var(--shadow-color);
 }
 .todo-wrapper h1 {
   font-size: 24px;
   font-weight: bold;
 }
-
 /* Styling Task Input Form */
 .todo-wrapper .input-group {
   background-color: var(--input-bg-color);
