@@ -30,7 +30,7 @@ body {
   background-color: var(--body-bg-color) !important;
 }
 .todo-wrapper {
-  max-width: 800px;
+  max-width: 600px;
   margin: auto;
   background-color: var(--wrapper-bg-color);
   padding: 20px;
