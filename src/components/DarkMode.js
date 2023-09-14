@@ -15,7 +15,7 @@ const DarkMode = () => {
   }, [theme]);
 
   return (
-    <div className="toggle-switch">
+    <div className="toggle-switch d-flex align-items-center">
       <label className="switch-label">
         <input
           type="checkbox"

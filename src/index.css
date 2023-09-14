@@ -30,15 +30,33 @@ body {
   background-color: var(--body-bg-color) !important;
 }
 .todo-wrapper {
-  max-width: 600px;
+  max-width: 800px;
   margin: auto;
   background-color: var(--wrapper-bg-color);
   padding: 20px;
   border-radius: 6px;
+  overflow: hidden;
 }
 .todo-wrapper h1 {
   font-size: 24px;
   font-weight: bold;
+}
+.todo-wrapper .clear {
+  width: 35px;
+  height: 35px;
+  border-radius: 6px;
+  background-color: #D11A2A;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .3s;
+}
+@media (hover: hover) {
+  .todo-wrapper .clear:hover {
+    background-color: #ba1f2c;
+  }
 }
 /* Styling Task Input Form */
 .todo-wrapper .input-group {
@@ -67,6 +85,18 @@ body {
 }
 .todo-wrapper .input-group button:hover {
   background-color: #e75d37;
+}
+.todo-wrapper .todo-list {
+  max-height: 350px;
+  overflow-y: auto;
+}
+/* Scroll Bar Styling */
+.todo-wrapper .todo-list::-webkit-scrollbar {
+  width: 5px;
+}
+.todo-wrapper .todo-list::-webkit-scrollbar-thumb {
+  background-color: grey;
+  border-radius: 30px;
 }
 .todo-wrapper .task {
   padding: 15px;

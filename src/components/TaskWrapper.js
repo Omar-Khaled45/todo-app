@@ -4,6 +4,8 @@ import Task from "./Task";
 import Swal from "sweetalert2";
 import EditForm from "./EditForm";
 import DarkMode from "./DarkMode";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
 
 const TaskWrapper = () => {
   const [list, setList] = useState(
@@ -89,13 +91,35 @@ const TaskWrapper = () => {
     );
   };
 
+  const clearList = () => {
+    Swal.fire({
+      icon: "question",
+      title: "Are You Sure You Want To Delete All Tasks?",
+      showCancelButton: true,
+      allowOutsideClick: true,
+      background: "var(--wrapper-bg-color)",
+      color: "var(--text-color)",
+    }).then((res) => {
+      if (res.isConfirmed) {
+        setList([]);
+      }
+    });
+  };
+
   // Add Tasks to Local Storage
   addToLocalStorage();
 
   return (
     <div className="todo-wrapper mt-5">
       <div className="mb-3 d-flex justify-content-between align-items-center">
-        <h1>To-Do List</h1>
+        <div className="d-flex align-items-center">
+          <h1>To-Do List</h1>
+          {list.length > 1 && (
+            <div role="button" className="clear ms-3" onClick={clearList}>
+              <FontAwesomeIcon icon={faTrashCan} />
+            </div>
+          )}
+        </div>
         <DarkMode />
       </div>
       <TaskInput addTask={addTask} />
