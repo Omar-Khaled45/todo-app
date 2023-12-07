@@ -109,23 +109,11 @@ body {
   font-size: 22px;
   position: relative;
   max-width: 350px;
+  transition: .3s;
 }
 .todo-wrapper .task.completed p {
   color: var(--completed-task) !important;
-}
-.todo-wrapper .task  p::before {
-  content: "";
-  width: 0;
-  height: 2px;
-  background-color: var(--completed-task);
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  transition: all ease .3s;
-}
-.todo-wrapper .task.completed  p::before {
-  width: 100%;
+  text-decoration: line-through;
 }
 @media (max-width: 576px) {
   .todo-wrapper .task p {
@@ -136,6 +124,12 @@ body {
   .todo-wrapper .task p {
     font-size: 18px;
   }
+}
+.todo-wrapper .task .task-control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
 }
 .todo-wrapper .task .task-control svg {
   cursor: pointer;
