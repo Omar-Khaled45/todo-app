@@ -22,6 +22,14 @@ const TaskWrapper = () => {
       taskName: newTask,
       completed: false,
       editing: false,
+      taskTime: new Date().toLocaleString("en-US", {
+        hour: "numeric",
+        minute: "numeric",
+        hour12: true,
+        month: "numeric",
+        day: "numeric",
+        year: "numeric",
+      }),
     };
     setList([...list, task]);
   };

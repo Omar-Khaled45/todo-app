@@ -101,9 +101,6 @@ body {
 .todo-wrapper .task {
   padding: 15px;
   border-bottom: 1px solid var(--task-border);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 .todo-wrapper .task p {
   font-size: 22px;
@@ -112,17 +109,15 @@ body {
   transition: .3s;
 }
 .todo-wrapper .task.completed p {
-  color: var(--completed-task) !important;
+  color: var(--completed-task);
+} 
+.todo-wrapper .task.completed p:not(.time) {
   text-decoration: line-through;
 }
+
 @media (max-width: 576px) {
   .todo-wrapper .task p {
     max-width: 200px;
-  }
-}
-@media (max-width: 768px) {
-  .todo-wrapper .task p {
-    font-size: 18px;
   }
 }
 .todo-wrapper .task .task-control {
@@ -136,6 +131,17 @@ body {
 }
 .todo-wrapper .task.completed svg.edit {
   pointer-events: none;
+}
+.todo-wrapper .task .time {
+  font-size: 14px;
+}
+@media (max-width: 768px) {
+  .todo-wrapper .task p {
+    font-size: 18px;
+  }
+  .todo-wrapper .task p.time {
+    font-size: 12px;
+  }
 }
 
 /* Styling Edit Form */
