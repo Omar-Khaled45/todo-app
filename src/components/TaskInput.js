@@ -9,7 +9,7 @@ const TaskInput = ({ addTask }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (newTask) {
-      addTask(newTask);
+      addTask(newTask.trim());
       setNewTask("");
     }
   };
